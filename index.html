@@ -1,0 +1,193 @@
+<html>
+
+<head>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+
+	<script src="modal_util.js"></script>
+
+</head>
+
+<body>
+
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" id="btnExemplo1">EXEMPLO 1</button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" id="btnExemplo2">EXEMPLO 2</button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" id="btnExemplo3">EXEMPLO 3</button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" id="btnExemplo4">EXEMPLO 4</button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" id="btnExemplo5">EXEMPLO 5</button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" id="btnExemplo6">EXEMPLO 6</button>
+		</div>
+	</div>
+
+	<script>
+
+		(function () {
+
+			var modal = new ModalUtil();
+
+			$("#btnExemplo1").click(function () {
+
+				modal.init({ nome_modal: "modal2", msg: "modal 2", naoFechar: true });
+
+				modal.init({ nome_modal: "modal1", msg: "modal 1" });
+
+				setTimeout(function () {
+
+					modal.fechar("modal1");
+				}, 2000);
+
+				setTimeout(function () {
+
+					modal.fechar("modal2");
+				}, 4000);
+			});
+
+			$("#btnExemplo2").click(function () {
+
+				modal.init({
+					titulo: "Atenção <small>Aviso muito importante!</small>", tipoModal: "aviso", botoes: {
+						"SAIR": function (refModAL) {
+							refModAL.fecharModal();
+						},
+						"LIMPAR": function (refModAL) {
+							refModAL.fecharModal();
+						},
+						"SALVAR": function (refModAL) {
+							refModAL.fecharModal();
+						}
+					}
+				}).corpo.html("EXEMPLO 2");
+			});
+
+			$("#btnExemplo3").click(function () {
+
+				modal.init({
+					titulo: "Atenção <small>Erro!</small>", tipoModal: "erro", botoes: {
+						"OK": function (refModAL) {
+							refModAL.fecharModal();
+						}
+					}
+				}).corpo.html("EXEMPLO 3");
+			});
+
+			$("#btnExemplo4").click(function () {
+
+				modal.init({
+					titulo: "Atenção <small>Sucesso!</small>", tipoModal: "sucesso", botoes: {
+						"OK": function (refModAL) {
+							refModAL.fecharModal();
+						}
+					}
+				}).corpo.html("EXEMPLO 4");
+			});
+
+			$("#btnExemplo5").click(function () {
+
+				modal.init({
+					titulo: "Atenção <small>Sucesso!</small>", tipoModal: "sucesso", botoes: [
+						{
+							texto: "OK",
+							funcao: function (refModal) {
+
+								refModal.fecharModal();
+							},
+							classe: "btn btn-dark",
+							titulo: "Click em ok para fechar"
+						},
+						{
+							texto: "Salvar",
+							funcao: function (refModal) {
+
+								refModal.fecharModal();
+							},
+							classe: "btn btn-danger",
+							titulo: "Click em ok para salvar"
+						}
+					]
+				}).corpo.html("EXEMPLO 5");
+			});
+
+			$("#btnExemplo6").click(function () {
+
+				var corpo = "<div class='text-left'>";
+				corpo += "<div class='row'>";				
+				corpo += "<div class='col-md-12'>";
+			    corpo += "<label>Nome:</label><br>";
+				corpo += "<input type='text' class='form-control' placeholder='Informe o nome' />";
+				corpo += "</div>";
+				corpo += "</div>";				
+				corpo += "<div class='row'>";
+				corpo += "<div class='col-md-12'>";
+				corpo += "<label>Idade:</label><br>";
+				corpo += "<input type='number' class='form-control' placeholder='Informe a idade' />";
+				corpo += "</div>";
+				corpo += "</div>";				
+				corpo += "<div class='row'>";
+				corpo += "<div class='col-md-12'>";
+				corpo += "<label>Data:</label><br>";
+				corpo += "<input type='date' class='form-control' />";
+				corpo += "</div>";
+				corpo += "</div>";
+				corpo += "</div>";
+
+				modal.init({
+					titulo: "Atenção <small>Formulário de cadastro!</small>", tipoModal: "aviso", botoes: {
+						"FECHAR": function (refModAL) {
+							refModAL.fecharModal();
+						},
+						"LIMPAR": function (refModAL) {
+							refModAL.fecharModal();
+						},
+						"SALVAR": function (refModAL) {
+							refModAL.fecharModal();
+						}
+					}
+				}).corpo.html(corpo);
+			});
+
+		})();
+
+	</script>
+
+</body>
+
+</html>
