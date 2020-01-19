@@ -57,12 +57,7 @@
 			<button class="btn btn-primary" id="btnExemplo6">EXEMPLO 6</button>
 		</div>
 	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-4">
-			<button class="btn btn-primary" id="btnExemplo7">EXEMPLO 7</button>
-		</div>
-	</div>
+	
 
 	<script>
 
@@ -188,45 +183,6 @@
 						}
 					}
 				}).corpo.html(corpo);
-			});
-
-			$("#btnExemplo7").click(function () {
-
-				$("#container").load("parcial.html #container");
-
-				modal.init({
-					titulo: "Atenção <small>Formulário de cadastro!</small>", tipoModal: "aviso", botoes: {
-						"FECHAR": function (refModAL) {
-							refModAL.fecharModal();
-						},
-						"LIMPAR": function (refModAL) {
-							refModAL.fecharModal();
-						},
-						"SALVAR": function (refModAL) {
-							refModAL.fecharModal();
-						}
-					}
-				}).corpo.html($("#container").html());
-
-				// $.ajax({
-				// 	url: "parcial.html",
-				// 	dataType: "html",
-				// 	success: function (dados) {
-				// 		modal.init({
-				// 			titulo: "Atenção <small>Formulário de cadastro!</small>", tipoModal: "aviso", botoes: {
-				// 				"FECHAR": function (refModAL) {
-				// 					refModAL.fecharModal();
-				// 				},
-				// 				"LIMPAR": function (refModAL) {
-				// 					refModAL.fecharModal();
-				// 				},
-				// 				"SALVAR": function (refModAL) {
-				// 					refModAL.fecharModal();
-				// 				}
-				// 			}
-				// 		}).corpo.html(dados);
-				// 	}
-				// });
 			});
 
 		})();
