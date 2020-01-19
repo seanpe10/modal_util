@@ -2,9 +2,9 @@
 
 <head>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> 
+		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
@@ -55,6 +55,12 @@
 	<div class="row">
 		<div class="col-md-4">
 			<button class="btn btn-primary" id="btnExemplo6">EXEMPLO 6</button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" id="btnExemplo7">EXEMPLO 7</button>
 		</div>
 	</div>
 
@@ -149,18 +155,18 @@
 			$("#btnExemplo6").click(function () {
 
 				var corpo = "<div class='text-left'>";
-				corpo += "<div class='row'>";				
+				corpo += "<div class='row'>";
 				corpo += "<div class='col-md-12'>";
-			    corpo += "<label>Nome:</label><br>";
+				corpo += "<label>Nome:</label><br>";
 				corpo += "<input type='text' class='form-control' placeholder='Informe o nome' />";
 				corpo += "</div>";
-				corpo += "</div>";				
+				corpo += "</div>";
 				corpo += "<div class='row'>";
 				corpo += "<div class='col-md-12'>";
 				corpo += "<label>Idade:</label><br>";
 				corpo += "<input type='number' class='form-control' placeholder='Informe a idade' />";
 				corpo += "</div>";
-				corpo += "</div>";				
+				corpo += "</div>";
 				corpo += "<div class='row'>";
 				corpo += "<div class='col-md-12'>";
 				corpo += "<label>Data:</label><br>";
@@ -184,9 +190,50 @@
 				}).corpo.html(corpo);
 			});
 
+			$("#btnExemplo7").click(function () {
+
+				$("#container").load("parcial.html #container");
+
+				modal.init({
+					titulo: "Atenção <small>Formulário de cadastro!</small>", tipoModal: "aviso", botoes: {
+						"FECHAR": function (refModAL) {
+							refModAL.fecharModal();
+						},
+						"LIMPAR": function (refModAL) {
+							refModAL.fecharModal();
+						},
+						"SALVAR": function (refModAL) {
+							refModAL.fecharModal();
+						}
+					}
+				}).corpo.html($("#container").html());
+
+				// $.ajax({
+				// 	url: "parcial.html",
+				// 	dataType: "html",
+				// 	success: function (dados) {
+				// 		modal.init({
+				// 			titulo: "Atenção <small>Formulário de cadastro!</small>", tipoModal: "aviso", botoes: {
+				// 				"FECHAR": function (refModAL) {
+				// 					refModAL.fecharModal();
+				// 				},
+				// 				"LIMPAR": function (refModAL) {
+				// 					refModAL.fecharModal();
+				// 				},
+				// 				"SALVAR": function (refModAL) {
+				// 					refModAL.fecharModal();
+				// 				}
+				// 			}
+				// 		}).corpo.html(dados);
+				// 	}
+				// });
+			});
+
 		})();
 
 	</script>
+
+	<div id='container' style="display: none;"></div>
 
 </body>
 
