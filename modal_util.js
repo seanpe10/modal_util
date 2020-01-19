@@ -481,8 +481,3 @@ function ModalUtil() {
 
     return _context;
 }
-
-//ModalUtil.prototype.modal = {};
-
-
-
