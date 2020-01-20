@@ -5,8 +5,7 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 
 # SEGUE AS DEPENDÊNCIAS PARA USAR A BIBLIOTECA
 
-<script src="https://code.jquery.com/jquery-3.4.1.js"
-		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> 
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> 
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -27,17 +26,17 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 
 # Primeiro instanciar o objeto ModalUtil:
 
- var modal = new ModalUtil();
+ 1-) var modal = new ModalUtil();
 
 # exemplo 1
 
-	<div class="row">
+2-)	<div class="row">
 		<div class="col-md-4">
 			<button class="btn btn-primary" id="btnExemplo1">EXEMPLO 1</button>
 		</div>
 	</div>
 
-    $("#btnExemplo1").click(function () {
+3-)   $("#btnExemplo1").click(function () {
 
         modal.init({ nome_modal: "modal1", msg: "modal 1" });
 
@@ -47,4 +46,30 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
         }, 2000);       
     });
 
+# exemplo 2
+
+4-)	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" id="btnExemplo2">EXEMPLO 2</button>
+		</div>
+	</div>
+
+5-)   $("#btnExemplo2").click(function () {
+
+        modal.init({
+            titulo: "Atenção <small>Aviso muito importante!</small>", tipoModal: "aviso", botoes: {
+                "SAIR": function (refModAL) {
+                    refModAL.fecharModal();
+                },
+                "LIMPAR": function (refModAL) {
+                    refModAL.fecharModal();
+                },
+                "SALVAR": function (refModAL) {
+                    refModAL.fecharModal();
+                }
+            }
+        }).corpo.html("EXEMPLO 2");
+    });
+
+   
 
