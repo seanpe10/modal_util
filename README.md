@@ -5,7 +5,7 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 
 # SEGUE AS DEPENDÊNCIAS PARA USAR A BIBLIOTECA
 
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> 
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> 
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -17,10 +17,11 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
+        
 
 # DEPOIS DE REFERENCIADO AS DEPENDÊNCIAS USAR A BIBLIOTECA MODAL_UTIL
 
-<script src="modal_util.js"></script>
+    <script src="modal_util.js"></script>
 
 # EXEMPLOS DE USO
 
@@ -30,13 +31,13 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 
 # exemplo 1
 
-2-)	<div class="row">
+    <div class="row">
 		<div class="col-md-4">
 			<button class="btn btn-primary" id="btnExemplo1">EXEMPLO 1</button>
 		</div>
 	</div>
 
-3-)   $("#btnExemplo1").click(function () {
+  $("#btnExemplo1").click(function () {
 
         modal.init({ nome_modal: "modal1", msg: "modal 1" });
 
@@ -48,13 +49,13 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 
 # exemplo 2
 
-4-)	<div class="row">
+    <div class="row">
 		<div class="col-md-4">
 			<button class="btn btn-primary" id="btnExemplo2">EXEMPLO 2</button>
 		</div>
 	</div>
 
-5-)   $("#btnExemplo2").click(function () {
+     $("#btnExemplo2").click(function () {
 
         modal.init({
             titulo: "Atenção <small>Aviso muito importante!</small>", tipoModal: "aviso", botoes: {
