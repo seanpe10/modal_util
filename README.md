@@ -5,6 +5,8 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 
 # SEGUE AS DEPENDÊNCIAS PARA USAR A BIBLIOTECA
 
+    <head>
+
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> 
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -17,19 +19,31 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
+
+    </head>
         
 
 # DEPOIS DE REFERENCIADO AS DEPENDÊNCIAS USAR A BIBLIOTECA MODAL_UTIL
 
+    <head>
+
     <script src="modal_util.js"></script>
+
+    </head>
 
 # EXEMPLOS DE USO
 
 # Primeiro instanciar o objeto ModalUtil:
 
+    <script>
+
     var modal = new ModalUtil();
 
+    </script>
+
 # exemplo 1
+
+    <body>
 
     <div class="row">
 		<div class="col-md-4">
@@ -37,15 +51,24 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 		</div>
 	</div>
 
-    $("#btnExemplo1").click(function () {
+    </body>
 
-        modal.init({ nome_modal: "modal1", msg: "modal 1" });
+    <script>
 
-        setTimeout(function () {
+        (function () {
 
-            modal.fechar("modal1");
-        }, 2000);       
-    });
+            $("#btnExemplo1").click(function () {
+
+                modal.init({ nome_modal: "modal1", msg: "modal 1" });
+
+                setTimeout(function () {
+
+                    modal.fechar("modal1");
+                }, 2000);       
+            });
+        });
+
+    </script>
 
 # exemplo 2
 
