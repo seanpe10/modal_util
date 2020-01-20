@@ -27,7 +27,7 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 
 # Primeiro instanciar o objeto ModalUtil:
 
- 1-) var modal = new ModalUtil();
+    var modal = new ModalUtil();
 
 # exemplo 1
 
@@ -37,7 +37,7 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 		</div>
 	</div>
 
-  $("#btnExemplo1").click(function () {
+    $("#btnExemplo1").click(function () {
 
         modal.init({ nome_modal: "modal1", msg: "modal 1" });
 
