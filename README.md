@@ -5,8 +5,6 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 
 # SEGUE AS DEPENDÊNCIAS PARA USAR A BIBLIOTECA
 
-    <head>
-
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> 
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -20,30 +18,17 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
 
-    </head>
-        
-
 # DEPOIS DE REFERENCIADO AS DEPENDÊNCIAS USAR A BIBLIOTECA MODAL_UTIL
 
-    <head>
-
     <script src="modal_util.js"></script>
-
-    </head>
 
 # EXEMPLOS DE USO
 
 # Primeiro instanciar o objeto ModalUtil:
 
-    <script>
-
     var modal = new ModalUtil();
 
-    </script>
-
-# exemplo 1
-
-    <body>
+# Exemplo 1
 
     <div class="row">
 		<div class="col-md-4">
@@ -51,26 +36,20 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 		</div>
 	</div>
 
-    </body>
+    (function () {
 
-    <script>
+        $("#btnExemplo1").click(function () {
 
-        (function () {
+            modal.init({ nome_modal: "modal1", msg: "modal 1" });
 
-            $("#btnExemplo1").click(function () {
+            setTimeout(function () {
 
-                modal.init({ nome_modal: "modal1", msg: "modal 1" });
-
-                setTimeout(function () {
-
-                    modal.fechar("modal1");
-                }, 2000);       
-            });
+                modal.fechar("modal1");
+            }, 2000);       
         });
-
-    </script>
-
-# exemplo 2
+    });
+   
+# Exemplo 2
 
     <div class="row">
 		<div class="col-md-4">
@@ -78,21 +57,24 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 		</div>
 	</div>
 
-     $("#btnExemplo2").click(function () {
+    (function () {
 
-        modal.init({
-            titulo: "Atenção <small>Aviso muito importante!</small>", tipoModal: "aviso", botoes: {
-                "SAIR": function (refModAL) {
-                    refModAL.fecharModal();
-                },
-                "LIMPAR": function (refModAL) {
-                    refModAL.fecharModal();
-                },
-                "SALVAR": function (refModAL) {
-                    refModAL.fecharModal();
+        $("#btnExemplo2").click(function () {
+
+            modal.init({
+                titulo: "Atenção <small>Aviso muito importante!</small>", tipoModal: "aviso", botoes: {
+                    "SAIR": function (refModAL) {
+                        refModAL.fecharModal();
+                    },
+                    "LIMPAR": function (refModAL) {
+                        refModAL.fecharModal();
+                    },
+                    "SALVAR": function (refModAL) {
+                        refModAL.fecharModal();
+                    }
                 }
-            }
-        }).corpo.html("EXEMPLO 2");
+            }).corpo.html("EXEMPLO 2");
+        });
     });
 
    
