@@ -3,12 +3,10 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 
 # Site e YouTube
 
-    /*
-        Dev = Sergio A Pereira ou Sergio AP
-        Site = https://www.programadordev.com
-        Programador DEV = https://www.youtube.com/channel/UCl2PjDObJFEOu0oEH-CB0TQ
-        Sergio truck games    https://www.youtube.com/channel/UC_mAQvSa84027vh06sUzWMg
-    */
+    Dev = Sergio A Pereira ou Sergio AP
+    Site = https://www.programadordev.com
+    Programador DEV = https://www.youtube.com/channel/UCl2PjDObJFEOu0oEH-CB0TQ
+    Sergio truck games = https://www.youtube.com/channel/UC_mAQvSa84027vh06sUzWMg
 
 # COMO USAR
 
