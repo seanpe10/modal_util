@@ -1,10 +1,16 @@
 # modal_util
 Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstrap
 
-# Site e YouTube
+# Desenvolvedor
 
     Dev = Sergio A Pereira ou Sergio AP
-    Site = https://www.programadordev.com
+
+# Site
+    
+    Site = https://www.programadordev.com    
+
+# YouTube
+
     Programador DEV = https://www.youtube.com/channel/UCl2PjDObJFEOu0oEH-CB0TQ
     Sergio truck games = https://www.youtube.com/channel/UC_mAQvSa84027vh06sUzWMg
 
