@@ -7,12 +7,12 @@ Criador e gerenciador de janelas modais baseado em javascript, jquery e bootstra
 
 # Site
     
-    Site = https://www.programadordev.com    
+Site = https://www.programadordev.com    
 
 # YouTube
 
-    Programador DEV = https://www.youtube.com/channel/UCl2PjDObJFEOu0oEH-CB0TQ
-     Sergio truck games = https://www.youtube.com/channel/UC_mAQvSa84027vh06sUzWMg
+Programador DEV = https://www.youtube.com/channel/UCl2PjDObJFEOu0oEH-CB0TQ
+Sergio truck games = https://www.youtube.com/channel/UC_mAQvSa84027vh06sUzWMg
 
 # COMO USAR
 
