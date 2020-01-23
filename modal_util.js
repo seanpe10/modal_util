@@ -59,8 +59,6 @@ function ModalUtil() {
                 'max-height': maxHeight,
                 'overflow-y': 'auto'
             });
-
-        $("html,body").css({ "overflow": "auto" });
     }
 
     var setModalLarguraMaximo = function (element) {
