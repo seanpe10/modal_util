@@ -52,7 +52,9 @@ https://www.youtube.com/channel/UC_mAQvSa84027vh06sUzWMg
 		</div>
 	</div>
 
-    (function () {
+    $(document).ready(function () {
+
+	var modal = new ModalUtil();
 
         $("#btnExemplo1").click(function () {
 
@@ -73,7 +75,9 @@ https://www.youtube.com/channel/UC_mAQvSa84027vh06sUzWMg
 		</div>
 	</div>
 
-    (function () {
+    $(document).ready(function () {
+
+	var modal = new ModalUtil();
 
         $("#btnExemplo2").click(function () {
 

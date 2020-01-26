@@ -1,11 +1,38 @@
 function ModalUtil() {
 
-   /*
-        Dev = Sergio A Pereira ou Sergio AP
-        Site = https://www.programadordev.com
-        Programador DEV = https://www.youtube.com/channel/UCl2PjDObJFEOu0oEH-CB0TQ
-        Sergio truck games = https://www.youtube.com/channel/UC_mAQvSa84027vh06sUzWMg
-   */
+    //Fonte = https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+    //Mantem a compatibilidade com navegadores antigos
+    if (!Array.prototype.find) {
+
+        Array.prototype.find = function (predicate) {
+
+            if (this === null) {
+                throw new TypeError('Array.prototype.find called on null or undefined');
+            }
+            if (typeof predicate !== 'function') {
+                throw new TypeError('predicate must be a function');
+            }
+            var list = Object(this);
+            var length = list.length >>> 0;
+            var thisArg = arguments[1];
+            var value;
+
+            for (var i = 0; i < length; i++) {
+                value = list[i];
+                if (predicate.call(thisArg, value, i, list)) {
+                    return value;
+                }
+            }
+            return undefined;
+        };
+    }
+
+    /*
+         Dev = Sergio A Pereira ou Sergio AP
+         Site = https://www.programadordev.com
+         Programador DEV = https://www.youtube.com/channel/UCl2PjDObJFEOu0oEH-CB0TQ
+         Sergio Truck Games = https://www.youtube.com/channel/UC_mAQvSa84027vh06sUzWMg
+    */
 
     'use strict'
 
@@ -59,8 +86,6 @@ function ModalUtil() {
                 'max-height': maxHeight,
                 'overflow-y': 'auto'
             });
-
-        $("html,body").css({ "overflow": "auto" });
     }
 
     var setModalLarguraMaximo = function (element) {
@@ -85,6 +110,8 @@ function ModalUtil() {
                 .find('.modal-lg').css({
                     'width': largura,
                 });
+
+            //$("html,body").css({ "overflow": "auto" });
         }
     }
 
@@ -196,7 +223,7 @@ function ModalUtil() {
         var botoes = "";
 
         if (parametros_funcao.botoes) {
-            
+
             var positivo_array = $.isArray(parametros_funcao.botoes);
 
             var primeiro_botao = 0;
@@ -374,6 +401,9 @@ function ModalUtil() {
 
                 if (parametros_funcao.depoisFechar)
                     parametros_funcao.depoisFechar(_context.modal(parametros_funcao.nome_modal));
+
+                if (modais.length === 0)
+                    $("html,body").css({ "overflow": "" });
             };
         }
         else {
@@ -439,7 +469,7 @@ function ModalUtil() {
     }
 
     _context.fechar = function (parametros_funcao) {
-
+       
         var nome_modal = "";
 
         if (typeof parametros_funcao === "string") {
@@ -450,7 +480,7 @@ function ModalUtil() {
         }
 
         if (parametros_funcao.nome_modal) {
-
+            
             if (_context.modal(parametros_funcao.nome_modal)) {
 
                 if (_context.modal(parametros_funcao.nome_modal).fecharModal)
@@ -470,9 +500,12 @@ function ModalUtil() {
 
         if (typeof parametros_funcao.funcaoCallBack === "function")
             parametros_funcao.funcaoCallBack();
+       
+        if (modais.length === 0)
+            $("html,body").css({ "overflow": "" });
     }
 
-    _context.fecharTodos = function (funcaoCallBack) {
+    _context.fecharTodos = function (funcaoCallBack) {       
 
         var tamanho = modais.length;
 
@@ -484,6 +517,8 @@ function ModalUtil() {
 
         if (typeof funcaoCallBack === "function")
             funcaoCallBack();
+       
+        $("html,body").css({ "overflow": "" });
     }
 
     return _context;
