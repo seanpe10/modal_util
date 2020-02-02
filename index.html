@@ -10,8 +10,8 @@
      */ -->
 
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
-		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> 
-		
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 		crossorigin="anonymous"></script>
@@ -64,7 +64,12 @@
 			<button class="btn btn-primary" id="btnExemplo6">EXEMPLO 6</button>
 		</div>
 	</div>
-	
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-primary" id="btnExemplo7">EXEMPLO 7</button>
+		</div>
+	</div>
 
 	<script>
 
@@ -190,6 +195,83 @@
 						}
 					}
 				}).corpo.html(corpo);
+			});
+
+			$("#btnExemplo7").click(function () {
+
+				modal.init({ nome_modal: "aguarde", naoFechar: true });
+
+				setTimeout(() => {
+
+					var corpo = "<div id='div_context' class='text-left'>";
+					corpo += "<div class='row'>";
+					corpo += "<div class='col-md-12'>";
+					corpo += "<label>Nome:</label><br>";
+					corpo += "<input type='text' class='form-control' placeholder='Informe o nome' />";
+					corpo += "</div>";
+					corpo += "</div>";
+					corpo += "<div class='row'>";
+					corpo += "<div class='col-md-12'>";
+					corpo += "<label>Idade:</label><br>";
+					corpo += "<input type='number' class='form-control' placeholder='Informe a idade' />";
+					corpo += "</div>";
+					corpo += "</div>";
+					corpo += "<div class='row'>";
+					corpo += "<div class='col-md-12'>";
+					corpo += "<label>Data:</label><br>";
+					corpo += "<input type='date' class='form-control' />";
+					corpo += "</div>";
+					corpo += "</div>";
+					corpo += "</div>";
+
+					modal.init({
+						naoFechar: true,
+						titulo: "Atenção <small>Formulário de cadastro!</small>", tipoModal: "aviso", botoes: {
+							"FECHAR": function (refModAL) {
+								refModAL.fecharModal();
+							},
+							"LIMPAR": function (refModAL) {
+
+								$("input", $("#div_context")).val("");
+							},
+							"SALVAR": function (refModAL) {
+
+								if ($("input", $("#div_context")).val() === "") {
+
+									modal.init({
+										titulo: "Atenção <small>Aviso!</small>",
+										tipoModal: "erro",
+										botoes: {
+											"OK": function (btnErro) {
+												btnErro.fecharModal();
+											}
+										}
+									}).corpo.html("Todos os campos são obrigatórios");
+								}
+								else {
+
+									modal.init({ nome_modal: "req_ajax" });
+
+									setTimeout(() => {
+
+										$(modal.modal("req_ajax").corpo).html("Salvo com sucesso.");
+
+										setTimeout(() => {
+
+											modal.fecharTodos();
+										}, 2000);
+									}, 2000);
+									
+								}
+							}
+						},
+						depoisCriado: function () {
+
+							modal.fechar("aguarde");
+						}
+					}).corpo.html(corpo);
+
+				}, 1000);
 			});
 
 		});
