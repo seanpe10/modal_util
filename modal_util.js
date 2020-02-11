@@ -1,5 +1,7 @@
 function ModalUtil() {
 
+    'use strict'
+
     //Fonte = https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/find
     //Mantem a compatibilidade com navegadores antigos
     if (!Array.prototype.find) {
@@ -33,8 +35,6 @@ function ModalUtil() {
          Programador DEV = https://www.youtube.com/channel/UCl2PjDObJFEOu0oEH-CB0TQ
          Sergio Truck Games = https://www.youtube.com/channel/UC_mAQvSa84027vh06sUzWMg
     */
-
-    'use strict'
 
     //Pega o contexto da classe
     var _context = this;
@@ -92,7 +92,7 @@ function ModalUtil() {
 
         if (element) {
 
-            var tamanho = screen.width;
+            var tamanho = window.width; //screen.width;
             var largura;
 
             switch (tamanho) {
@@ -438,7 +438,7 @@ function ModalUtil() {
 
         referenciaModal(parametros_funcao, refModal);
 
-        $("html,body").css({ "overflow": "hidden" });
+        //$("html,body").css({ "overflow": "hidden" });
 
         $(_context.modal(parametros_funcao.nome_modal).refModal).modal({
             show: true
